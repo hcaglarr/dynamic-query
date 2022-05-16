@@ -27,7 +27,7 @@ public class PersonService {
     }
 
     public Person findByPersonId(UUID id){
-        UUID personId = Optional
+        final var personId = Optional
                 .ofNullable(id)
                 .orElseThrow(() -> new UnsupportedOperationException("Check the id."));
 
@@ -36,13 +36,14 @@ public class PersonService {
     }
 
     public void save(List<PersonDto> persons) {
-        List<Person> newPeople = PersonConverter.INSTANCE.converter(persons);
+        final var people = Optional.ofNullable(persons).orElseThrow();
+        final var newPeople = PersonConverter.INSTANCE.converter(people);
         personRepository.saveAll(newPeople);
     }
 
     public List<PersonDto> dynamicPersonQuery(String firstName, String lastName, Integer age){
-        List<Person> persons = personRepository.findAll((Specification<Person>) (root, query, criteriaBuilder) -> {
-            List<Predicate> list = new ArrayList<Predicate>();
+        final var persons = personRepository.findAll((Specification<Person>) (root, query, criteriaBuilder) -> {
+            final var list = new ArrayList<Predicate>();
             if (firstName != null && !firstName.isEmpty())
                 list.add(criteriaBuilder.and(criteriaBuilder.equal(root.get("firstName"), firstName)));
             if (lastName != null && !lastName.isEmpty())

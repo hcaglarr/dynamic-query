@@ -1,12 +1,10 @@
 package com.hcaglar.dynamicquery.bootstrap;
 
 import com.hcaglar.dynamicquery.dto.PersonDto;
-import com.hcaglar.dynamicquery.entity.Person;
 import com.hcaglar.dynamicquery.service.PersonService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,18 +23,18 @@ public class PersonBootstrap {
     }
 
     @PostConstruct
-    private void init() {
-        List<PersonDto> people = new ArrayList<>();
-        people.add(new PersonDto("Ken", "Thompson", 79));
-        people.add(new PersonDto("Dennis", "Ritchie", 70));
-        people.add(new PersonDto("Alan", "Turing", 42));
-        people.add(new PersonDto("Tim", "Berners-Lee", 66));
-        people.add(new PersonDto("Grace", "Hopper", 86));
-        people.add(new PersonDto("Ken1", "Thompson", 79));
-        people.add(new PersonDto("Dennis1", "Ritchie", 70));
-        people.add(new PersonDto("Ken", "Thompson1", 79));
-        people.add(new PersonDto("Dennis", "Ritchie1", 70));
-
-        personService.save(people);
+    private void init(){
+        final var persons = List.of(
+                new PersonDto("Ken", "Thompson", 79),
+                new PersonDto("Dennis", "Ritchie", 70),
+                new PersonDto("Alan", "Turing", 42),
+                new PersonDto("Tim", "Berners-Lee", 66),
+                new PersonDto("Grace", "Hopper", 86),
+                new PersonDto("Ken1", "Thompson", 79),
+                new PersonDto("Dennis1", "Ritchie", 70),
+                new PersonDto("Ken", "Thompson1", 79),
+                new PersonDto("Dennis", "Ritchie1", 70)
+                );
+        personService.save(persons);
     }
 }

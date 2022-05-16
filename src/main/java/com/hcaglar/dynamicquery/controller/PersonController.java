@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 /**
  * @author Hüseyin ÇAĞLAR
  * @version 1.0
@@ -28,7 +26,7 @@ public class PersonController {
             @RequestParam(required = false) String firstName,
             @RequestParam(required = false) String lastName,
             @RequestParam(required = false) Integer age, Model model) {
-       List<PersonDto> persons = personService.dynamicPersonQuery(firstName, lastName, age);
+        final var persons = personService.dynamicPersonQuery(firstName, lastName, age);
 
         model.addAttribute("persons",persons);
         model.addAttribute("person", new PersonDto(firstName, lastName, age));
