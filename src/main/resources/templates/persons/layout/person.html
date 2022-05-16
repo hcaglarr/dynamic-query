@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="p-2" th:fragment="form" th:action="@{/persons}" th:method="GET" th:object="${person}">
+    <div class="row">
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="firstNameInput" name="firstName" placeholder="firstName" th:field="*{firstName}">
+                <label for="firstNameInput">firstName</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="lastNameInput" name="lastName" placeholder="lastName" th:field="*{lastName}">
+                <label for="lastNameInput">lastName</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="ageInput" name="age" placeholder="ageName" th:field="*{age}">
+                <label for="ageInput">age</label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-3 col-lg-3 jus">
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-outline-success btn-lg">Apply</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

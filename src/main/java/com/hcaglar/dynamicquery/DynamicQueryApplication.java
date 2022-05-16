@@ -1,4 +1,4 @@
-package com.example.dynamicquery;
+package com.hcaglar.dynamicquery;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
