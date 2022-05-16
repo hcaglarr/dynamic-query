@@ -1,4 +1,4 @@
-package com.example.dynamicquery;
+package com.hcaglar.dynamicquery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

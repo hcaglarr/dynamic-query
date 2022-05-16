@@ -1,29 +1,31 @@
-package com.example.dynamicquery.entity;
+package com.hcaglar.dynamicquery.dto;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.UUID;
 
 /**
  * @author Hüseyin ÇAĞLAR
  * @version 1.0
- * @since 15.05.2022
+ * @since 16.05.2022
  */
-@Entity
-public class Person {
+public class PersonDto {
 
-    @Id
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @GeneratedValue(generator = "UUID")
     private UUID id;
-
     private String firstName;
     private String lastName;
-
     private Integer age;
+
+    public PersonDto() {
+    }
+
+    public PersonDto(String firstName, String lastName, Integer age) {
+       this(null,firstName, lastName, age);
+    }
+    public PersonDto(UUID id, String firstName, String lastName, Integer age) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
 
     public UUID getId() {
         return id;

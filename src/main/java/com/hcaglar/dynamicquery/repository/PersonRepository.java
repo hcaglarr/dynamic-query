@@ -1,6 +1,6 @@
-package com.example.dynamicquery.repository;
+package com.hcaglar.dynamicquery.repository;
 
-import com.example.dynamicquery.entity.Person;
+import com.hcaglar.dynamicquery.entity.Person;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
